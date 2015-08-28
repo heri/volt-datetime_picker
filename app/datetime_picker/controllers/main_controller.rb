@@ -57,7 +57,7 @@ module DatetimePicker
     end
 
     def minusMinute
-      attrs.value = Time.new(attrs.value.year, attrs.value.month, attrs.value.day, attrs.value.hour, currente.min - 1)
+      attrs.value = Time.new(attrs.value.year, attrs.value.month, attrs.value.day, attrs.value.hour, attrs.value.min - 1)
     end
 
     def plusMinute
