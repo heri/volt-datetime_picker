@@ -2,16 +2,18 @@ module DatetimePicker
   class MainController < Volt::ModelController
     reactive_accessor :show
 
+    def current
+      attrs.value ||= Time.now
+      attrs.value
+    end
+
+
     def date_f
-      attrs.value ? attrs.value.strftime(attrs.date_format) : Time.now.strftime(attrs.date_format)
+      current.strftime(attrs.date_format)
     end
 
     def date_f=(value)
 
-    end
-
-    def current
-      attrs.value ? attrs.value : Time.now
     end
 
     def select_day
