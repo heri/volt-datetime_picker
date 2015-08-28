@@ -3,7 +3,7 @@ module DatetimePicker
     reactive_accessor :show
 
     def date_f
-      attrs.value.strftime(attrs.date_format)
+      attrs.value ? attrs.value.strftime(attrs.date_format) : Time.now.strftime(attrs.date_format)
     end
 
     def date_f=(value)
