@@ -10,6 +10,9 @@
 
 <:Body>
     <div class='xdatetime'>
+      {{ if label.present? }}
+        <label class="control-label">{{ label }}</label>
+      {{ end }}
         <input type='text' disabled="disabled" e-click="self.show=!self.show" value="{{ date_f }}" />
         {{if show}}
         <div class="xdatetime-popover">

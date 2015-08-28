@@ -1,6 +1,6 @@
 .xdatetime {
     position: relative;
-    display: inline;
+    /*display: inline;*/
 }
 
 
@@ -28,7 +28,6 @@
 .xdatetime-popover div {
     display: block;
     width: auto;
-    padding: 0.5em;
     text-align: center;
 }
 
