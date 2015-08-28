@@ -18,7 +18,7 @@ module DatetimePicker
 
     def select_day
       d = attrs.data[:date]
-      t = not_nil
+      t = current
       d = Time.new d.year, d.month, d.day, t.hour, t.min
       attrs.value = d
       attrs.hide_calendar
