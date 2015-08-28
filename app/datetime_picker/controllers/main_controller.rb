@@ -1,19 +1,25 @@
 module DatetimePicker
   class MainController < Volt::ModelController
     reactive_accessor :show
+    before_action :setup_field
 
-    def current
-      attrs.value ||= Time.now
-      attrs.value
-    end
 
+    def setup_field
+     attrs.value ||= Time.now
+
+     @field_name = attrs.value_last_method.gsub(/^[_]/, '')
+   end
 
     def date_f
-      current.strftime(attrs.date_format)
+      attrs.value.strftime(attrs.date_format)
     end
 
     def date_f=(value)
 
+    end
+
+    def label
+      attrs.label || @field_name.titleize
     end
 
     def select_day
@@ -29,35 +35,35 @@ module DatetimePicker
     end
 
     def minusMonth
-      attrs.value = Time.new(current.year,current.month - 1, current.day, current.hour, current.min)
+      attrs.value = Time.new(attrs.value.year,attrs.value.month - 1, attrs.value.day, attrs.value.hour, attrs.value.min)
     end
 
     def plusMonth
-      attrs.value = Time.new(current.year, current.month + 1, current.day, current.hour, current.min)
+      attrs.value = Time.new(attrs.value.year, attrs.value.month + 1, attrs.value.day, attrs.value.hour, attrs.value.min)
     end
 
     def minusYear
-      attrs.value = Time.new(current.year-1, current.month, current.day, current.hour, current.min)
+      attrs.value = Time.new(attrs.value.year-1, attrs.value.month, attrs.value.day, attrs.value.hour, attrs.value.min)
     end
 
     def plusYear
-      attrs.value = Time.new(current.year+1, current.month, current.day, current.hour, v.min)
+      attrs.value = Time.new(attrs.value.year+1, attrs.value.month, attrs.value.day, attrs.value.hour, v.min)
     end
 
     def minusHour
-      attrs.value = Time.new(current.year, current.month, current.day, current.hour - 1, current.min)
+      attrs.value = Time.new(attrs.value.year, attrs.value.month, attrs.value.day, attrs.value.hour - 1, attrs.value.min)
     end
 
     def plusHour
-      attrs.value = Time.new(current.year, current.month, current.day, current.hour + 1, current.min)
+      attrs.value = Time.new(attrs.value.year, attrs.value.month, attrs.value.day, attrs.value.hour + 1, attrs.value.min)
     end
 
     def minusMinute
-      attrs.value = Time.new(current.year, current.month, current.day, current.hour, currente.min - 1)
+      attrs.value = Time.new(attrs.value.year, attrs.value.month, attrs.value.day, attrs.value.hour, currente.min - 1)
     end
 
     def plusMinute
-      attrs.value = Time.new(current.year, current.month, current.day, current.hour, current.min + 1)
+      attrs.value = Time.new(attrs.value.year, attrs.value.month, attrs.value.day, attrs.value.hour, attrs.value.min + 1)
     end
 
     def days(week, date)
