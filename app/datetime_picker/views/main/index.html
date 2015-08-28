@@ -31,13 +31,11 @@
             {{if attrs.time}}
             <div class="xdatetime-bottom">
                 <span e-click="minusHour" class="minus-hour"><i class="fa fa-minus"></i></span>
-                <span>&nbsp;&nbsp;</span>
                 <span e-click="plusHour" class="plus-hour"><i class="fa fa-plus"></i></span>
                 <span>&nbsp;&nbsp;</span>
                 <span >{{attrs.value.strftime('%H:%M')}}</span>
                 <span>&nbsp;&nbsp;</span>
                 <span e-click="minusMinute" class="minus-minute"><i class="fa fa-minus"></i></span>
-                <span>&nbsp;&nbsp;</span>
                 <span e-click="plusMinute" class="plus-minute"><i class="fa fa-plus"></i></span>
             </div>
             {{end}}
