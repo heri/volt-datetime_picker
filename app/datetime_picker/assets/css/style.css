@@ -7,8 +7,6 @@
 .xdatetime-popover {
     position: absolute;
     left: 0;
-    width: 150%;
-
     z-index: 2;
     cursor: pointer;
     background-color: #fff;

@@ -3,11 +3,13 @@ module DatetimePicker
     reactive_accessor :show
     before_action :setup_field
 
-
     def setup_field
      attrs.value ||= Time.now
-
      @field_name = attrs.value_last_method.gsub(/^[_]/, '')
+   end
+
+   def label
+     attrs.label || @field_name.titleize
    end
 
     def date_f
@@ -16,10 +18,6 @@ module DatetimePicker
 
     def date_f=(value)
 
-    end
-
-    def label
-      attrs.label || @field_name.titleize
     end
 
     def select_day

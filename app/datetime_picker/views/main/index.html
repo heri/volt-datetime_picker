@@ -13,7 +13,7 @@
       {{ if label.present? }}
         <label class="control-label">{{ label }}</label>
       {{ end }}
-        <input type='text' disabled="disabled" e-click="self.show=!self.show" value="{{ date_f }}" />
+        <input type='text' disabled="disabled" e-click="self.show=!self.show" value="{{ date_f }}" class="form-control" />
         {{if show}}
         <div class="xdatetime-popover">
             <div class="xdatetime-header">
