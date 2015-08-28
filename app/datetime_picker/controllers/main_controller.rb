@@ -10,9 +10,13 @@ module DatetimePicker
 
     end
 
+    def current
+      attrs.value ? attrs.value : Time.now
+    end
+
     def select_day
       d = attrs.data[:date]
-      t = attrs.value
+      t = not_nil
       d = Time.new d.year, d.month, d.day, t.hour, t.min
       attrs.value = d
       attrs.hide_calendar
@@ -23,39 +27,35 @@ module DatetimePicker
     end
 
     def minusMonth
-      d = attrs.value
-      attrs.value = Time.new(d.year, d.month - 1, d.day, d.hour, d.min)
+      attrs.value = Time.new(current.year,current.month - 1, current.day, current.hour, current.min)
     end
 
     def plusMonth
-      d = attrs.value
-      attrs.value = Time.new(d.year, d.month + 1, d.day, d.hour, d.min)
+      attrs.value = Time.new(current.year, current.month + 1, current.day, current.hour, current.min)
     end
 
     def minusYear
-      d = attrs.value
-      attrs.value = Time.new(d.year-1, d.month, d.day, d.hour, d.min)
+      attrs.value = Time.new(current.year-1, current.month, current.day, current.hour, current.min)
     end
 
     def plusYear
-      d = attrs.value
-      attrs.value = Time.new(d.year+1, d.month, d.day, d.hour, d.min)
+      attrs.value = Time.new(current.year+1, current.month, current.day, current.hour, v.min)
     end
 
     def minusHour
-      attrs.value = Time.new(attrs.value.year, attrs.value.month, attrs.value.day, attrs.value.hour - 1, attrs.value.min)
+      attrs.value = Time.new(current.year, current.month, current.day, current.hour - 1, current.min)
     end
 
     def plusHour
-      attrs.value = Time.new(attrs.value.year, attrs.value.month, attrs.value.day, attrs.value.hour + 1, attrs.value.min)
+      attrs.value = Time.new(current.year, current.month, current.day, current.hour + 1, current.min)
     end
 
     def minusMinute
-      attrs.value = Time.new(attrs.value.year, attrs.value.month, attrs.value.day, attrs.value.hour, attrs.value.min - 1)
+      attrs.value = Time.new(current.year, current.month, current.day, current.hour, currente.min - 1)
     end
 
     def plusMinute
-      attrs.value = Time.new(attrs.value.year, attrs.value.month, attrs.value.day, attrs.value.hour, attrs.value.min + 1)
+      attrs.value = Time.new(current.year, current.month, current.day, current.hour, current.min + 1)
     end
 
     def days(week, date)
